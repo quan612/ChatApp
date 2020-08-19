@@ -1,6 +1,8 @@
 # ChatApp
 A Web application built with NodeJS, ExpressJS, SocketIO
 
+On Backend side, admin can manage users, group, permissions, other modules etc...
+
 ## Demo
 https://nodejs-quan-61288.herokuapp.com/
 
