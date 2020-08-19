@@ -1,0 +1,23 @@
+<% handleRenderSideBarFilter = (linkPrefix, keyword) => {
+    
+    let xhtmlResult = '';
+    xhtmlResult+=`
+    <div class="sidebar-item-container">
+        <h6>Filter Reading</h6>
+        <!-- <form action="/linkPrefix" method="GET"> -->
+            <div class="input-group flex">
+            
+            <span class="input-group-btn">
+              <button class="btn m-b-sm btn-warning btn-sm filter-read">Đã Xem</button>
+            </span>    
+            
+            <span class="input-group-btn ml-2">
+              <button class="btn m-b-sm btn-secondary btn-sm filter-unread" >Chưa Xem</button>
+            </span> 
+          </div>
+        <!-- </form> -->
+      </div>
+    `    
+    return xhtmlResult;
+  } 
+%>

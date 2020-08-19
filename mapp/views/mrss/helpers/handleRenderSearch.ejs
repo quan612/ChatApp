@@ -1,0 +1,18 @@
+<% handleRenderSearch = (linkPrefix, keyword) => {    
+    let xhtmlResult = '';
+    xhtmlResult+=`
+    <div class="sidebar-item-container">
+      <h6>Search:</h6>
+      <!-- <form action="/${linkPrefix}" method="GET"> -->
+        <div class="input-group flex">
+          <input type="text" class="form-control sidebar-search" name="keyword" placeholder="Search for..." value=${params.keyword} >
+          <span class="input-group-btn ml-auto">
+            <button class="btn btn-info" type="submit">Search</button>
+          </span>          
+        </div>
+      <!-- </form> -->
+    </div>
+    `    
+    return xhtmlResult;
+    } 
+%>

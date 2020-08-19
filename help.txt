@@ -1,0 +1,11 @@
+
+     
+           
+            <div class="user">
+                <div  class="col-md-8 user-avatar">
+                    <img class="contacts-list-img" src="img/user6-128x128.jpg"
+                         alt="User Image">
+                    <h5>Shakira Arthur</h5>
+                </div>
+                <div class="col-md-4"><button type="button" class="btn btn-block btn-default btn-sm btn-w">Remove</button></div>
+            </div>

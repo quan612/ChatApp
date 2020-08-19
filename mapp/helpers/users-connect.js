@@ -1,0 +1,35 @@
+module.exports = class UsersConnect {
+  constructor() {
+    this.users = [];
+  }
+
+  addUser(id, username, avatar) {
+    // to handle situation that having the same user login twice, when duplicate browser tab
+    let user = this.getUserByUsername(username);
+    if (!user) {
+      let user = { id, username, avatar };
+      this.users.push(user);
+    }
+    return this.users;
+  }
+
+  removeUser(id) {
+    let user = this.getUser(id);
+    if (user) {
+      this.users = this.users.filter((user) => user.id !== id);
+    }
+    return user;
+  }
+
+  getUserByUsername(username) {
+    return this.users.filter((user) => user.username === username)[0];
+  }
+
+  getUser(id) {
+    return this.users.filter((user) => user.id === id)[0];
+  }
+
+  getListUsers() {
+    return this.users;
+  }
+};

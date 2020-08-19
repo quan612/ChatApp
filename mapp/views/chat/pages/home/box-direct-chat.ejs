@@ -1,0 +1,33 @@
+<% include ./../../helpers/show-message-chat %>
+<% include ./../../helpers/format-date %>
+
+
+<div class="box box-primary direct-chat direct-chat-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Direct Chat Panel</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">     
+        <div class="direct-chat-messages" id="area-list-message" >          
+            <%- showMessageChat(itemsChat, userInfo) %>  
+        </div>           
+    </div>
+
+
+    <div class="box-footer">        
+        <form action="#" method="post" id="form-chat">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    name="message" 
+                    id="message" 
+                    placeholder="Type Message ..."
+                    class="form-control emojiarea-editor"
+                >                
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary btn-flat">Send</button>
+                </span>
+            </div>
+        </form>
+    </div>    
+</div>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include ./elements/head %>
+    <% include ./elements/scripts %> 
+ 
+</head>
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+    <% include ./elements/header %>
+    <% 
+
+    let info_relation = {
+        "requestSent": userInfo.requestTo,
+        "requestReceived": userInfo.requestFrom,
+        "friendList": userInfo.friendList
+        }
+
+    %>
+    <div class="content-wrapper">
+        <div class="container">
+            <% include ./elements/breadcrumb %>
+            <section class="content">
+                <% include ./elements/template %>
+                <%- body %>
+              
+            </section>
+        </div>
+    </div>
+    <input 
+        type="hidden" 
+        name="username" 
+        value="<%= userInfo.username %>"
+    >
+    <input 
+        type="hidden" 
+        name="avatar" 
+        value="<%= userInfo.avatar %>"
+    >
+    <input 
+        type="hidden" 
+        name="prefixSocket" 
+        value="<%= prefixSocket %>"
+    >
+    <input 
+        type="hidden" 
+        name="relationship" 
+        value="<%= JSON.stringify(info_relation) %>"
+    >
+    <% include ./elements/footer %>
+</div>
+<script src="chat/js/socket-general.js"></script> 
+</body>
+</html>

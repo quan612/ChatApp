@@ -1,0 +1,41 @@
+<% 
+    const linkAdmin = systemConfig.prefixAdmin + `/dashboard`;
+    const linkInvitations = systemConfig.prefixChat + `/invitation/receive`;
+    const linkOutgoingRequest = systemConfig.prefixChat + `/invitation/send`;
+    const linkFriend = systemConfig.prefixChat + `/invitation/friend`;
+    const linkPrivateMessage = systemConfig.prefixChat + `/private`;
+    let xhtmlLinkAdmin = '';
+
+    if( Object.keys(userInfo).length > 0) {       
+        if(userInfo.username == "admin"){
+            xhtmlLinkAdmin = `<li><a href="${linkAdmin}">Admin Control Panel</a></li>`;
+        }
+    }   
+%>
+
+<div class="navbar-header">
+    <a href="#" class="navbar-brand"><b>Chat App</b> 1.0</a>
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar-collapse">
+        <i class="fa fa-bars"></i>
+    </button>
+</div>
+
+<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+    <ul class="nav navbar-nav">       
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils <span
+                    class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="<%= linkInvitations %>">Invitations</a></li>                           
+                <li class="divider"></li>
+                <li><a href="<%= linkOutgoingRequest %>">Outgoing Request</a></li>
+                <li class="divider"></li>
+                <li><a href="<%= linkFriend %>">Friend</a></li>
+                <li class="divider"></li>
+                <li><a href="<%= linkPrivateMessage %>">Private Message</a></li>
+            </ul>
+        </li>
+        <%- xhtmlLinkAdmin %>
+    </ul>             
+</div>

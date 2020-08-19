@@ -1,0 +1,21 @@
+<% include ./../../helpers/handleRenderListRSS %>
+<% 	    
+	const linkPrefix 	= systemConfig.prefixMRSS;	
+%>
+
+<div class="container">
+  <% rssCategories.forEach((category)=>{ %>
+    <h4><%= category.name %></h4>
+    <hr/> 
+    <div className="category-panel">  
+      <ul class="list-group p-2">      
+        <%- handleRenderListRSS(rssSources, category, params) %>    
+      </ul>
+      <div class="btn-wrapper mt-4 text-center">
+        <a href="<%= linkPrefix %>/fetch-more/<%= category._id  %>/?keyword=<%= params.keyword %>"  class="btn btn-primary fetch-more">Load More</a>
+      </div>
+    </div> 
+    <%}) %> 
+</div>
+
+

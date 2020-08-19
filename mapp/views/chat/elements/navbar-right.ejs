@@ -1,0 +1,48 @@
+<% include ./../helpers/show-box-user %>
+<% include ./../helpers/show-box-request-friend %>
+<% include ./../helpers/show-box-message-notify %>
+<% 
+    if(typeof userInfo.totalRequest ==='undefined') userInfo.totalRequest = 0;
+    if(typeof userInfo.unreadMessage ==='undefined') userInfo.unreadMessage = [];
+
+%>
+
+<% 
+    let notificationMenu=`
+    <li class="dropdown notifications-menu">
+        <!-- Menu toggle button -->
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-fw fa-user-plus"></i>
+            <span class="label label-warning total-invite-requests">${userInfo.totalRequest}</span>
+        </a>
+        <ul class="dropdown-menu">
+            ${showBoxRequestFriend(userInfo.totalRequest, userInfo.requestFrom)}
+        </ul>
+    </li>    
+    `
+%>
+
+<% 
+    let messageMenu = `
+    <li class="dropdown messages-menu">
+        <!-- Menu toggle button -->
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-envelope-o"></i>
+            ${userInfo.unreadMessage.length > 0 ? `<span class="label label-success total-message-notify">${userInfo.unreadMessage.length}</span>` 
+            : `<span class="label label-success total-message-notify"></span>`}
+        </a>
+        <ul class="dropdown-menu">          
+                ${showBoxMessageNotify(userInfo.unreadMessage, userInfo.unreadMessage.length)}         
+        </ul>
+    </li>
+    `
+%>
+
+
+<div class="navbar-custom-menu">
+    <ul class="nav navbar-nav">       
+        <%- messageMenu %>
+        <%- notificationMenu %>        
+        <%- showBoxUser(userInfo) %>
+    </ul>
+</div>

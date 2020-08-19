@@ -1,0 +1,16 @@
+<% 
+    individualSelect = (linkPrefix, name, selectBoxItems, currentItem, optionSelected = '') => {
+        let xhtml = '';
+        
+        selectBoxItems.forEach((item) =>{
+            let selected = (item.id == optionSelected) ? `selected="selected"` : '';
+            let categoryId       = (item.id == undefined) ? 'allvalue' : item.id;        
+            let link        = linkPrefix + 'change-category/' + currentItem.id + '/' + categoryId;
+    
+            xhtml += `<option value="${link}" ${selected} >${item.name}</option>`;
+        });
+
+        return `<select name="${name}" class="form-control" >${xhtml}</select>`;
+    }
+%>
+

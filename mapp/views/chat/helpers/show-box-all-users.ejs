@@ -1,0 +1,29 @@
+<% 
+    showBoxAllUsers = (allUsers) => { 
+        
+    let xhtmlBox = ``;    
+   
+    if(allUsers.length > 0) {            
+    xhtmlBox += `<ul class="menu">`;
+    for(let i = 0; i < allUsers.length ; i++)
+    {         
+        const {name, avatar, username} = allUsers[i];                  
+        let userAvatar  = 'uploads/users/' + avatar;
+        let linkPrivate    = systemConfig.prefixChat + `/private/` + username;
+    
+        xhtmlBox += `<div class="user-invite" data-name="${name}">
+                <div  class="col-md-7 col-sm-7 col-xs-7 user-avatar">
+                    <img class="contacts-list-img" src="${userAvatar}" alt="${name}">
+                    <h5>${name}</h5>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-5 btn-action-invite">
+                    <a href="${linkPrivate}" type="button" class="btn btn-block btn-primary btn-w btn-sm">Send Message</a>
+                 </div>
+            </div>`;
+    }   
+    
+    xhtmlBox += '</li></ul></li>';
+}   
+        return xhtmlBox;
+    } 
+%>

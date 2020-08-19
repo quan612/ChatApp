@@ -1,0 +1,79 @@
+<% include format-date %>
+<% include highlightText %>
+
+<%  handleRenderListRSS = (rssSources, category, params) => {        
+        let xhtml = '';
+        
+        let count = 0; 
+        rssSources.forEach((source) => {          
+          if (source.category.id === category.id) {               
+              let items = source.rssData.items;
+              for (let i = 0; i < items.length; i++) {                      
+                if(items[i].title.toUpperCase().includes(params.keyword.toUpperCase()) == false) continue;
+                if (count === 2) break;                 
+                xhtml += `                        
+                      <div class="rss-article-item" >                            
+                        ${handleRenderImage(items[i].link, items[i].content)}
+                        ${handleRenderItemInfo(items[i], source.rssData)}                            
+                      </div>      
+                                 
+                `
+                count++;
+              }
+          }
+        })
+
+        if (xhtml === '') {
+          xhtml += `
+              <div class="flex text-center">
+                <div class=" align-content-center">
+                  There is no feed for this category ${category.name}
+                </div>
+              </div>`
+        }
+
+        return `<div className="rss-article-container">${xhtml}</div>`;
+    } 
+%>
+
+<%
+    handleRenderImage = (link, content) => {         
+      let image = content.match(/<img [^>]*src="[^"]*"[^>]*>/gm).map(x => x.replace(/.*src="([^"]*)".*/, '$1'))[0];
+      
+        return `
+          <div class="rss-article-image">
+            <a href=${link} target="_blank" >
+              <img class="img-responsive img-rounded" src=${image} />                        
+            </a> 
+          </div>
+        `
+    }
+%>
+
+<%
+    handleRenderItemInfo = (item, rssData) => {   
+      <!-- let pubDate = item.pubDate.    -->
+      return `
+        <div class="rss-article-info">
+          <div class="d-flex">
+            <h5 class="mr-2">
+              <a href=${item.link} target="_blank" class="item-title">              
+                ${highlightText(item.title, params.keyword)}              
+              </a>
+            </h5>
+          </div>
+
+          <div class="info">
+            <span>${formatDate(item.pubDate)}</span>
+            <span class="label label-danger ml-3">${rssData.generator}</span>            
+          </div>
+
+          <p class="lead description paragraph-content class="item-description>
+            ${highlightText(item.contentSnippet, params.keyword)}
+            <br />          
+          </p>  
+               
+        </div>           
+      `
+    }
+%>

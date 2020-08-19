@@ -1,0 +1,165 @@
+<script id="template-chat-message" type='x-tmpl-mustache'>
+    <div class="direct-chat-msg {{typeOfChat}}">
+        <div class="direct-chat-info clearfix">
+            <span class="direct-chat-name {{classUserName}}">{{username}}</span>
+            <span class="direct-chat-timestamp {{classCreated}}">{{created}}</span>
+        </div>                
+        <img 
+            class="direct-chat-img" 
+            src="{{userAvatar}}"
+            alt="{{username}}">
+        <div class="direct-chat-text">
+            {{content}}
+        </div>             
+    </div>  
+</script>
+
+<script id="template-notify-error" type='x-tmpl-mustache'>
+    <div class='alert alert-danger alert-dismissible' id="area-notification">
+        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'></button>
+        <strong>Error: </strong>{{data.content}}
+    </div>
+</script>
+
+<script id="template-user-typing" type='x-tmpl-mustache'>
+    <p class='show-typing'>
+        {{username}} is typing...
+    </p>
+</script>
+
+<script id="template-user-online" type='x-tmpl-mustache'>
+    <div class="user">
+        <div class="col-md-8 col-sm-8 col-xs-8 user-avatar">
+            <img 
+                class="contacts-list-img" 
+                src="uploads/users/{{avatar}}"
+                alt="{{username}}">
+            <h5>{{username}}</h5>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <button 
+                data-username="{{username}}" 
+                data-avatar="{{avatar}}"
+                data-socketid="{{id}}"
+                type="button" 
+                class="add-friend btn btn-block btn-primary btn-w btn-sm">
+                Add friend
+            </button>
+        </div>
+    </div>  
+</script>
+
+<script id="template-user-online-requestSent" type='x-tmpl-mustache'>
+    <div class="user">
+        <div class="col-md-8 col-sm-8 col-xs-8 user-avatar">
+            <img 
+                class="contacts-list-img" 
+                src="uploads/users/{{avatar}}"
+                alt="{{username}}">
+            <h5>{{username}}</h5>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <button                
+                type="button" 
+                disabled="true"
+                class="add-friend btn btn-block btn-primary btn-w btn-sm">
+                Request Sent
+            </button>
+        </div>
+    </div>  
+</script>
+
+<script id="template-user-online-requestReceived" type='x-tmpl-mustache'>
+    <div class="user">
+        <div class="col-md-8 col-sm-8 col-xs-8 user-avatar">
+            <img 
+                class="contacts-list-img" 
+                src="uploads/users/{{avatar}}"
+                alt="{{username}}">
+            <h5>{{username}}</h5>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <button 
+                data-sender="{{sender}}" 
+                data-senderavatar="{{senderAvatar}}" 
+                type="button" 
+                class="btn btn-block btn-primary control-add-friend-accept"
+            >
+                Accept
+            </button>
+            <button 
+                data-sender="{{sender}}" 
+                type="button" 
+                class="btn btn-block btn-default control-add-friend-deny"
+            >
+                Deny
+            </button>
+        </div>
+    </div>  
+</script>
+
+<script id="template-user-online-friendList" type='x-tmpl-mustache'>
+    <div class="user">
+        <div class="col-md-8 col-sm-8 col-xs-8 user-avatar">
+            <img 
+                class="contacts-list-img" 
+                src="uploads/users/{{avatar}}"
+                alt="{{username}}">
+            <h5>{{username}}</h5>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <button                 
+                data-username="{{user.username}}" 
+                type="button" 
+                class="add-friend btn btn-block btn-primary btn-w btn-sm"
+            >
+                Remove
+            </button>
+            
+        </div>
+    </div>  
+</script>
+
+<script id="template-invite-requests" type='x-tmpl-mustache'>
+    <div 
+        class="user-invite" 
+        data-name="{{sender}}"
+    >
+        <div  class="col-md-7 col-sm-7 col-xs-7 user-avatar">
+            <img class="contacts-list-img" src="uploads/users/{{senderAvatar}}" alt="{{sender}}">
+            <h5>{{sender}}</h5>
+        </div>
+        <div class="col-md-5 col-sm-5 col-xs-5 btn-action-invite">
+            <button 
+                data-sender="{{sender}}" 
+                data-senderavatar="{{senderAvatar}}" 
+                type="button" 
+                class="btn btn-block btn-primary control-add-friend-accept"
+            >
+                Accept
+            </button>
+            <button 
+                data-sender="{{sender}}" 
+                type="button" 
+                class="btn btn-block btn-default control-add-friend-deny"
+            >
+                Deny
+            </button>
+        </div>
+    </div>
+</script>
+
+<script id="template-message-notify" type='x-tmpl-mustache'>
+    <a href={{privateChatLink}} data-name={{username}}>
+        <div class="pull-left">
+                     <!-- User Image -->
+                     <img src="uploads/users/{{userAvatar}}" alt="${{username}}" class="img-circle">
+                 </div>
+                 <!-- Message title and timestamp -->
+                 <h4> {{username}} 
+                     <small><i class="fa fa-clock-o"></i>  {{created}}</small> 
+                 </h4>
+                 <!-- The message -->
+                 <p>{{content}}</p>
+    </a>
+</script>

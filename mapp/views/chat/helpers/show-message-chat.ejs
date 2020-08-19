@@ -1,0 +1,39 @@
+<% include ./format-date %>
+<% 
+    showMessageChat = (chats, currentUser) => { 
+        let chatHtml = '';
+        for(let i = 0; i < chats.length; i++) { 
+            let currentItem = chats[i];
+            let userAvatar = 'uploads/users/' + currentItem.avatar;
+
+            let typeOfChat=
+                currentUser.username===currentItem.username? 
+                'right':'';
+
+            let classUserName = 
+                currentUser.username===currentItem.username? 
+                'pull-left':'pull-right';
+
+            let classCreated =
+                currentUser.username===currentItem.username? 
+                'pull-right':'pull-left';         
+
+            chatHtml += `
+                <div class="direct-chat-msg ${typeOfChat}">
+                    <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name ${classUserName}">${currentItem.username}</span>
+                        <span class="direct-chat-timestamp ${classCreated}">${formatDate(currentItem.created)}</span>
+                    </div>                    
+                    <img 
+                        class="direct-chat-img" 
+                        src="${userAvatar}"
+                        alt="${currentItem.username}">
+                    <div class="direct-chat-text">
+                        ${currentItem.content}
+                    </div>                  
+                </div>   
+            `                         
+       } 
+        return chatHtml;
+    } 
+%>

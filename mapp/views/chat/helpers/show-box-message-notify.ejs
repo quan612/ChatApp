@@ -1,0 +1,45 @@
+<% include ./format-date %>
+<% 
+    showBoxMessageNotify = (totalUnreadMessage, unreadMessage) => { 
+        let xhtmlMessageNotify = ``;
+        let link = systemConfig.prefixChat + `/private`;
+        xhtmlMessageNotify += `<li class="header" id="list-message-notify">You currently have 
+            <span class="total-message-notify">
+                ${totalUnreadMessage.length}
+            </span> new messages</li>`;
+    
+        if(totalUnreadMessage.length > 0) {
+            xhtmlMessageNotify += `<li><ul class="menu message-notify"><li>`;
+            for(let i = 0; i < totalUnreadMessage.length; i++)
+            { 
+                let message     = totalUnreadMessage[i];
+                let userAvatar  = 'uploads/users/' + message.avatar;
+                let username    = message.username;
+                let privateChatLink = link + '/' + username;
+                xhtmlMessageNotify += `                
+                <a href=${privateChatLink} data-name="${username}">
+                   <div class="pull-left">
+                                <!-- User Image -->
+                                <img src="${userAvatar}" alt="${username}" class="img-circle">
+                            </div>
+                            <!-- Message title and timestamp -->
+                            <h4> ${username}   
+                                <small><i class="fa fa-clock-o"></i>  ${formatDate(message.created)}</small> 
+                            </h4>
+                            <!-- The message -->
+                            <p>${message.content}</p>`;                      
+            } 
+
+            xhtmlMessageNotify += `                              
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            
+            `;
+        }
+    
+      xhtmlMessageNotify += `<li class="footer"><a href=${link}>See all messages</a></li>`;
+        return xhtmlMessageNotify;
+    } 
+%>

@@ -1,0 +1,185 @@
+.list-group {box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.34);}
+
+.list-group-item {background-color: rgba(255,255,255,0.7); border:0;}
+
+.btn-toolbar {margin-top:10px;}
+
+img {
+  /* float:left;  */
+  margin-right:10px;
+  height: 100px;
+  width: 100;
+}
+
+.paragraph-content {
+  /* width: 200px; */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.rss-article-item {
+  display: flex!important;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+/* .rss-article-image {
+  
+} */
+
+.rss-article-info {  
+  flex:1;
+}
+
+/* side bar */
+.sidebar-search {
+  width: 200px;
+  max-width: 200px;
+}
+
+.sidebar-item-container {
+  margin:1px;
+  padding:10px;
+  
+ 
+  border: 1px solid whitesmoke;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.long-text {
+  font-size: 0.7rem;
+}
+
+.white-font {
+  color: white;
+}
+
+.highlight-text {
+  background-color: yellow;
+}
+
+.visited {
+  -webkit-animation:colorchange 10s infinite alternate;
+  animation:colorchange 10s infinite alternate;
+  font-weight: 700;
+}
+
+.noshow {
+  display: none!important;
+}
+
+@-webkit-keyframes colorchange {
+  0% {
+    
+    color: blue;
+  }
+  
+  10% {
+    
+    color: #8e44ad;
+  }
+  
+  20% {
+    
+    color: #1abc9c;
+  }
+  
+  30% {
+    
+    color: #d35400;
+  }
+  
+  40% {
+    
+    color: blue;
+  }
+  
+  50% {
+    
+    color: #34495e;
+  }
+  
+  60% {
+    
+    color: blue;
+  }
+  
+  70% {
+    
+    color: #2980b9;
+  }
+  80% {
+ 
+    color: #f1c40f;
+  }
+  
+  90% {
+ 
+    color: #2980b9;
+  }
+  
+  100% {
+    
+    color: pink;
+  }
+}
+
+@keyframes colorchange {
+  0% {
+    
+    color: blue;
+  }
+  
+  10% {
+    
+    color: #8e44ad;
+  }
+  
+  20% {
+    
+    color: #1abc9c;
+  }
+  
+  30% {
+    
+    color: #d35400;
+  }
+  
+  40% {
+    
+    color: blue;
+  }
+  
+  50% {
+    
+    color: #34495e;
+  }
+  
+  60% {
+    
+    color: blue;
+  }
+  
+  70% {
+    
+    color: #2980b9;
+  }
+  80% {
+ 
+    color: #f1c40f;
+  }
+  
+  90% {
+ 
+    color: #2980b9;
+  }
+  
+  100% {
+    
+    color: pink;
+  }
+}

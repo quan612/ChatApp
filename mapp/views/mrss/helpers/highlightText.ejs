@@ -1,0 +1,7 @@
+<% highlightText = (text, keyword) => {   
+    let highlighted = '';    
+    if(text)
+    highlighted = text.replace(new RegExp(keyword, 'i'), `<span class="highlight-text">$&</span>`);    
+    return `${highlighted}`;
+}
+%>

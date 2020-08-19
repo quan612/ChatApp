@@ -1,0 +1,35 @@
+<% include ./../../helpers/show-box-all-users %>
+
+<div class="col-md-4">   
+    <div class="row">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">All Users In System</h3>        
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body" id="list-users-in-system">
+            <%- showBoxAllUsers(allUsers) %> 
+            </div>
+        </div>
+               
+            </div>
+    
+    
+</div>
+<div class="col-md-8 no-padding-right ">
+    <%  if(privateId!==null)  {%>
+    <%- include ./box-direct-chat %>   
+    <% } %>      
+</div>
+
+<input type="hidden" name="prefixSocket" value="<%= prefixSocket %>">
+<input type="hidden" name="privateId" value="<%= privateId %>">
+<input type="hidden" name="username" value="<%= userInfo.username %>">
+<input type="hidden" name="avatar" value="<%= userInfo.avatar %>">
+<input type="hidden" name="socketId" value="<%= userInfo.id %>">
+
+
+<script src="chat/js/socket-private.js"></script> 

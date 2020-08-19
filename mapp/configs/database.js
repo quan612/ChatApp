@@ -1,0 +1,17 @@
+module.exports = {
+  username: "quan612",
+  password: "admin123456",
+  database: "training_nodejs",
+  col_items: "items",
+  col_groups: "groups",
+  col_users: "users",
+  col_category: "categories",
+  col_rssCategory: "rssCategories",
+  col_rssSources: "rssSources",
+  col_article: "article",
+  col_tags: "tags",
+  col_chats: "chats",
+  col_chatRooms: "chatRooms",
+  col_chatInRooms: "chatInRooms",
+  col_chatPrivate: "chatPrivate",
+};

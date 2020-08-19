@@ -1,0 +1,38 @@
+<% handleRenderSidebarSourceRSS = (rssCategorySidebar, rssSourcesSidebar, rssCategories, rssSources) => {
+    let xhtml = ''; 
+   
+    rssCategorySidebar.forEach((category) => {
+      let isCategoryChecked = rssCategories.some(item => item._id == category.id);        
+      xhtml += `
+      <div class="category-rss ">                            
+        <input 
+          type="checkbox" 
+          ${isCategoryChecked? 'checked':''} 
+          name="rssCategoriesRequest" 
+          class="rssCategory" 
+          value=${category._id} 
+        /> 
+        <label>${category.name}</label>`
+
+      rssSourcesSidebar.forEach((source) => {
+        if(source.category.id == category.id) {         
+          let isSourcesChecked = rssSources.some(item => item._id.toString() == source._id.toString());           
+          xhtml += `                        
+          <div class="source-rss ml-4">                            
+            <input 
+              type="checkbox" 
+              ${isSourcesChecked? 'checked':''} 
+              name="rssSourcesRequest" 
+              value=${source._id} 
+              class="rssSource"
+            /> 
+            <label>${source.name}</label>                
+          </div>`      
+        }  
+      })  
+      xhtml += `</div>`
+    })      
+    return `${xhtml}`;
+  } 
+  %>
+  
