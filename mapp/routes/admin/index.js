@@ -15,5 +15,6 @@ router.use("/chatRooms", require("./chatRooms"));
 //rss
 router.use("/rssCategory", require("./rssCategory"));
 router.use("/rssSources", require("./rssSources"));
+router.use("/auth", require("./auth"));
 
 module.exports = router;
