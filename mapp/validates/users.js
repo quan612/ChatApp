@@ -18,21 +18,12 @@ module.exports = {
       .isLength({ min: options.name.min, max: options.name.max });
 
     //password length
-    // req
-    //   .checkBody("password", util.format(notify.ERROR_PASSWORD, options.password.min, options.password.max))
-    //   .isLength({ min: options.password.min, max: options.password.max });
-    req.checkBody("password", "Password cannot be empty").notEmpty();
-    //   .custom(() => {
-    //     if (req.body.password === req.body.confirmPassword) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     }
-    //   });
-    // .withMessage("Passwords don't match.");
+    req
+      .checkBody("password", util.format(notify.ERROR_PASSWORD, options.password.min, options.password.max))
+      .isLength({ min: options.password.min, max: options.password.max });
 
-    // // password confirm
-    req.assert("confirmPassword", "Passwords do not match").isNotEqual(req.body.password);
+    //password confirm
+    req.assert("confirmPassword", "Passwords do not match").equals(req.body.password);
 
     // ORDERING
     req

@@ -149,7 +149,7 @@ router.post("/save", (req, res, next) => {
 
     let item = Object.assign(req.body);
     item.username = item.name;
-    item.password = md5(item.password);
+
     let taskCurrent = typeof item !== "undefined" && item.id !== "" ? "edit" : "add";
 
     let errors = ValidateUsers.validator(req, errUpload, taskCurrent);
@@ -175,7 +175,7 @@ router.post("/save", (req, res, next) => {
         item.avatar = req.file.filename;
         if (taskCurrent == "edit") FileHelpers.remove("public/uploads/users/", item.image_old);
       }
-
+      item.password = md5(item.password);
       UsersModel.saveItem(item, { task: taskCurrent }).then((result) => {
         req.flash("success", message, false);
         res.redirect(linkIndex);
