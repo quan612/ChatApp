@@ -9,6 +9,8 @@ module.exports = {
   ADD_SUCCESS: "Thêm mới phần tử thành công",
   EDIT_SUCCESS: "Cập nhật thông tin phần tử thành công",
   ERROR_NAME: "Chiều dài từ %d đến %d ký tự",
+  ERROR_PASSWORD: "Password must be between %d chars and %d chars",
+  ERROR_PASSWORD_CONFIRM: "Password confirm and password is not same",
   ERROR_ORDERING: "Phải là số nguyên lớn hơn %d và bé hơn %d",
   ERROR_STATUS: "Phải là một giá trị khác rỗng",
   ERROR_SPECIAL: "Phải là một giá trị khác rỗng",
